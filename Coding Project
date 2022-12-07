@@ -1,0 +1,135 @@
+import matplotlib.pyplot as plt
+
+pointSystem = 0
+#To create a pointsystem to tally up the marks
+
+height = int(input("Enter your height in centimeters: "))
+if height <= 160:
+    pointSystem += 0
+elif height <= 170:
+    pointSystem +=1
+elif height <= 190:
+    pointSystem += 1.5
+elif height <= 210:
+    pointSystem += 2
+print (pointSystem)
+#
+
+vertical = int(input("Enter your vertical as inches: "))
+if vertical <= 25:
+    pointSystem += 0
+elif vertical <= 30:
+    pointSystem += 1
+elif vertical <= 35:
+    pointSystem += 2
+else:
+    pointSystem += 3
+print (pointSystem)
+
+
+weight = int(input("Enter your weight in pounds: "))
+if weight <= 130:
+    pointSystem += 0
+elif weight <= 150:
+   pointSystem += 1
+elif weight <= 180:
+   pointSystem += 1.5
+elif weight <= 210:
+    pointSystem+= 2
+elif weight <= 250:
+    pointSystem+= 2.5
+elif weight <= 280:
+    pointSystem += 3
+else:
+    pointSystem += 0.5
+print (pointSystem)
+#just a loop of giving the audience's points and adding points to the system based on their input
+
+
+inputDunk = input("Can you dunk? Yes, Almost or No: ")
+if inputDunk.lower() == 'yes':
+    pointSystem += 3
+elif inputDunk.lower() == 'almost':
+     pointSystem += 1
+print (pointSystem)
+#Giving them 3 choices, based on their input, add the specific amount of points
+
+inputLayup = int(input("What's your layup %?"))
+inputFree = int(input("What's your free throw %?"))
+inputMid = int(input("What's your Mid Range %?"))
+inputThree = int(input("What's your Three-Pointer %?"))
+pointSystem2 = inputLayup + inputFree + inputMid + inputThree 
+#I create a new pointSystem to add all the percentages up, I do not add the percentages to pointsystem1 because they do not correlate with eachother
+#Asking for percentages, I do not add points here because I will use these percentages and multiple or divide them based on numbers I found reasearching online
+
+
+if pointSystem >= 5:
+    print ("You will make the NBA!")
+else:
+    print ("You will not make the NBA, don't worry only 0.3% of the world will make it!")
+#This is where after the points are tallied up, if they have 5 or more points, they will make the NBA, if not, they will not make the NBA
+    
+p2 = pointSystem2/10
+print(f'{p2} is how many points you can average')
+p3 = p2/5.6
+print(f'{p3} is how many assists you can average')
+p4 = p2/3
+print(f'{p4} is how many rebounds you can average')
+#This is where I add my percentages and pointsystem2 and divide the number based on the reasearch I found
+#For example I found that every assist you get is from the 3 points you would average
+
+
+
+if p2 >= 30 and p3 >= 4 and p4 >= 3:
+    print("You will be an Allstar")
+money = p2/8.7 * 8200000
+round(money)
+print(f'{money} is how much money you will earn')
+#Setting up a mininum of points, assists and rebounds to show if they will become an Allstar
+
+
+X = [1,40]
+Y = [942539,38000000]
+#creating the maxinum and mininum
+int = ("x", "y")
+#Setting up the graph
+#I showed the correlation between Money and average points recieved
+
+plt.plot(X,Y)
+
+
+
+font1 = {'family':'serif','color':'blue','size':20}
+#the font I chose to make my graph more Aesthetically pleasing
+
+plt.xlabel('Average points')
+plt.ylabel('Money in Millions')
+plt.title ('Correlation between Points and Money', fontdict = font1)
+plt.style.use ('dark_background')
+#Choosing, writing and creating the x and y labels and the title for the graph
+#I decided with a black and blue presentation because they both contrast and look good together
+
+
+fig, ax = plt.subplots()
+ax.set(xlim=(p2), ylim=(money))
+
+
+plt.figure()
+plt.plot(X, Y)
+plt.scatter([p2],[money])
+#           x point, y point
+#I used a scatter plot and a line of best fit
+plt.show()
+
+#All of these numbers to use to divide were all found during me research phase
+
+'''
+['seaborn-dark', 'seaborn-darkgrid', 'seaborn-ticks', 'fivethirtyeight',
+ 'seaborn-whitegrid', 'classic', '_classic_test', 'fast', 'seaborn-talk',
+ 'seaborn-dark-palette', 'seaborn-bright', 'seaborn-pastel', 'grayscale',
+ 'seaborn-notebook', 'ggplot', 'seaborn-colorblind', 'seaborn-muted',
+ 'seaborn', 'Solarize_Light2', 'seaborn-paper', 'bmh', 'seaborn-white',
+ 'dark_background', 'seaborn-poster', 'seaborn-deep']
+'''
+#Just some options I found for my background
+#Thanks for looking at my code!
